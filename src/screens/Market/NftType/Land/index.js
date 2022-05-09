@@ -5,7 +5,7 @@ import Layout from "../../../../component/Layout";
 const Land = () => {
   return (
     <Layout>
-      <Typography variant="h1">I am from Land</Typography>
+      <Typography variant="h1">Land Comming Soon</Typography>
     </Layout>
   );
 };

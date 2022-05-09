@@ -168,7 +168,12 @@ const MarketPlaceDrawer = ({ open, setOpenMarketPlaceDrawer }) => {
                 </ListItemIcon>
                 <ListItemText primary="Land" />
               </ListItemButton>
-              <ListItemButton>
+              <ListItemButton
+                onClick={() => {
+                  navigate("/mysterybox");
+                  setOpenMarketPlaceDrawer(false);
+                }}
+              >
                 <ListItemIcon
                   sx={{ color: (theme) => theme.palette.text.primary }}
                 >
@@ -176,7 +181,12 @@ const MarketPlaceDrawer = ({ open, setOpenMarketPlaceDrawer }) => {
                 </ListItemIcon>
                 <ListItemText primary="MYSTERY BOX" />
               </ListItemButton>
-              <ListItemButton>
+              <ListItemButton
+                onClick={() => {
+                  navigate("/equipment");
+                  setOpenMarketPlaceDrawer(false);
+                }}
+              >
                 <ListItemIcon
                   sx={{ color: (theme) => theme.palette.text.primary }}
                 >

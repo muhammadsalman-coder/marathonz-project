@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=PT+Serif&display=swap')
+.container
+    // border: 2px solid red
+    width: 100%
+    cursor: pointer
+    max-width: 300px
+    // max-height: 400px
+    // min-height: 400px
+    background-color: #1b2026
+    padding: 1rem
+    margin: 0.5rem
+    background: linear-gradient(#1b2026, #1b2026) padding-box, linear-gradient(to bottom, darkblue, darkorchid) border-box
+    border-radius: 10px
+    border: 2px solid transparent
+    .image
+        width: 100%
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        img
+            width: 100%
+            height: 180px
+            object-fit: cover
+        p
+            font-weight: bold
+            margin: 0
+            color: #fcc508
+            font-family: 'Oswald', sans-serif
+            font-size: 1.2rem
+    .lowerSection
+        // border: 2px solid green
+        display: flex
+        flex-direction: column
+        justify-content: center
+        // align-items: center
+        &>p
+            color: grey
+        &>div
+            display: flex
+            align-items: center
+            .coin
+                color: red
+                margin-right: 0.3rem
+            p
+                color: #fcc508
+        .cart
+            align-self: end
+            background-color: #4d4d4d
+            width: 40px
+            height: 40px
+            border-radius: 50%
+            display: flex
+            justify-content: center
+            align-items: center
+            .cartIcon
+                font-size: 1.2rem
+                color: #eeeeee
+p
+    margin: 0

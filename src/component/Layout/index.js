@@ -11,55 +11,36 @@ import Box from "@mui/material/Box";
 import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
-import Typography from "@mui/material/Typography";
+// import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
-// import Badge from "@mui/material/Badge";
-import Container from "@mui/material/Container";
-// import Grid from "@mui/material/Grid";
-// import Stack from "@mui/material/Stack";
+// import Container from "@mui/material/Container";
 
-// import Paper from "@mui/material/Paper";
-// import Link from "@mui/material/Link";
 import InputBase from "@mui/material/InputBase";
+
 // icons
 import MenuIcon from "@mui/icons-material/Menu";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-// import NotificationsIcon from "@mui/icons-material/Notifications";
 import SearchIcon from "@mui/icons-material/Search";
-
-//customs
-// import { mainListItems, mainListItems2, secondaryListItems } from "./listItems";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import ConstructionRoundedIcon from "@mui/icons-material/ConstructionRounded";
+import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
 
 // list
 import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-// import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import ConstructionRoundedIcon from "@mui/icons-material/ConstructionRounded";
-import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
-// import ExpandLess from "@mui/icons-material/ExpandLess";
-// import ExpandMore from "@mui/icons-material/ExpandMore";
-// import StarBorder from "@mui/icons-material/StarBorder";
-// import Collapse from "@mui/material/Collapse";
-// import InboxIcon from "@mui/icons-material/MoveToInbox";
-// import LayersIcon from "@mui/icons-material/Layers";
-// import FingerprintIcon from "@mui/icons-material/Fingerprint";
-// import ColorizeIcon from "@mui/icons-material/Colorize";
-// import VideogameAssetIcon from "@mui/icons-material/VideogameAsset";
+
 import MarketPlaceDrawer from "./MarketPlaceDrawer";
 import MapDrawer from "./MapDrawer";
-// import MenuIcon from "@mui/icons-material/Menu";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Fade from "@mui/material/Fade";
 import { useNavigate } from "react-router-dom";
-// import Chart from "./Chart";
-// import Deposits from "./Deposits";
-// import Orders from "./Orders";
+import { Fab } from "@mui/material";
+import { DiscordIcon } from "../../svg/DiscordIcon";
 const mdTheme = createTheme({
   palette: {
     mycolor: {
@@ -67,7 +48,8 @@ const mdTheme = createTheme({
     },
     secondary: {
       main: "#14171c",
-      light: "#1b2026",
+      light: "#a0a4a7",
+      dark: "#455a64",
       contrastText: "#a0a4a7",
     },
     background: {
@@ -186,7 +168,7 @@ const Drawer = styled(MuiDrawer, {
   },
 }));
 
-function Layout({ children }) {
+function Layout({ children, hideFab }) {
   const [openMarketPlaceDrawer, setOpenMarketPlaceDrawer] = useState(false);
   const [openMapDrawer, setOpenMapDrawer] = useState(false);
   const navigate = useNavigate();
@@ -349,7 +331,7 @@ function Layout({ children }) {
           variant="permanent"
           open={true}
           sx={{
-            "& .css-ux9tp3-MuiPaper-root-MuiDrawer-paper": {
+            "& .MuiDrawer-paper": {
               backgroundColor: "#14171c",
               // color: "#a0a4a7",
             },
@@ -422,7 +404,12 @@ function Layout({ children }) {
                 <ListItemText primary="Create" />
               </ListItemIcon>
             </ListItemButton>
-            <ListItemButton onClick={() => toggleDrawer("map")}>
+            <ListItemButton
+              onClick={() => {
+                toggleDrawer("map");
+                navigate("/map");
+              }}
+            >
               <ListItemIcon
                 sx={{
                   color: "#a0a4a7",
@@ -460,16 +447,14 @@ function Layout({ children }) {
           }}
         >
           <Toolbar />
-          <Container
+          <Box
             maxWidth="xl"
             sx={{
-              my: 4,
               color: (theme) => theme.palette.secondary.contrastText,
             }}
           >
-            <Typography variant="h2">shan</Typography>
             {children}
-          </Container>
+          </Box>
           {/* <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
               {
@@ -521,6 +506,22 @@ function Layout({ children }) {
           </Container> */}
         </Box>
       </Box>
+      <Fab
+        color="primary"
+        aria-label="add"
+        sx={{
+          position: "absolute",
+          bottom: "30px",
+          right: "30px",
+          alignItems: "center",
+          justifyContent: "center",
+          display: hideFab ? "none" : "flex",
+        }}
+      >
+        <div style={{ marginTop: "5px" }}>
+          <DiscordIcon fill={"#fff"} size={"35px"} />
+        </div>
+      </Fab>
     </ThemeProvider>
   );
 }

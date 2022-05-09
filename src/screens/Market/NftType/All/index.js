@@ -5,7 +5,7 @@ import Layout from "../../../../component/Layout";
 const All = () => {
   return (
     <Layout>
-      <Typography variant="h1">I am from All</Typography>
+      <Typography variant="h1">All Comming Soon</Typography>
     </Layout>
   );
 };
